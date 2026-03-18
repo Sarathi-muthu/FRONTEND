@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> collegeregister form</title>
+<link rel="stylesheet" href="college form .css">
+</head>
+<body>
+    <center>
+    <h3>M.A.M COLLEGE OF ENGINEERING AND TECHNOLOGY</h3>
+    </center>
+    <center>
+    <form action="" onsubmit="return validateForm()">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="regno">Registration Number:</label>
+        <input type="text" id="regno" name="regno"><br><br>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob"><br><br>
+
+        <label for="year">Year:</label>
+        <input type="number" id="year" name="year"><br><br>
+
+        <label for="section">Section:</label>
+        <input type="text" id="section" name="section"><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+
+        <label for="blood group">Blood Group:</label>
+        <input type="text" id="bloodgroup" name="bloodgroup"><br><br>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address"><br><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone"><br><br>
+
+        <label for="course">Course:</label>
+        <select id="course" name="course">
+            <option value="">Select a course</option>
+            <option value="computer_science">Computer Science</option>
+            <option value="electronics">Electronics</option>
+            <option value="mechanical">Mechanical</option>
+             <option value="civil">Civil</option>
+             <option value="chemical">Chemical</option>
+        </select><br><br>
+
+        <div id="errorMessage" style="color: red; font-weight: bold;"></div><br>
+
+        </center>
+        <center>
+        <input  class="one" type="submit" value="Submit">
+    </center>
+    </form>
+
+    <script>
+        function validateForm() {
+            
+            let name = document.getElementById("name").value;
+            let regno = document.getElementById("regno").value;
+            let dob = document.getElementById("dob").value;
+            let year = document.getElementById("year").value;
+            let email = document.getElementById("email").value;
+            let phone = document.getElementById("phone").value;
+            let course = document.getElementById("course").value;
+            let section = document.getElementById("section").value;
+            let bloodgroup = document.getElementById("bloodgroup").value;
+            let address = document.getElementById("address").value;
+            let errorMessage = document.getElementById("errorMessage");
+            errorMessage.innerHTML = "";
+            if (name == "") {
+                errorMessage.innerHTML = "Error: Name cannot be empty!";
+                return false;
+            }
+            else if (name.length < 3) {
+                errorMessage.innerHTML = "Error: Name must be at least 3 characters long!";
+                return false;
+            }
+                else if (regno == "") {
+                    errorMessage.innerHTML = "Error: Registration number cannot be empty!";
+                    return false;
+                }
+                else if (dob == "") {
+                    errorMessage.innerHTML = "Error: Date of Birth cannot be empty!";
+                    return false;
+                }
+                else if (section == "") {
+                    errorMessage.innerHTML = "Error: Section cannot be empty!";
+                    return false;
+                }
+                else if (bloodgroup == "") {
+                    errorMessage.innerHTML = "Error: Blood Group cannot be empty!";
+                    return false;
+                }   
+                else if (address == "") {
+                    errorMessage.innerHTML = "Error: Address cannot be empty!";
+                    return false;
+                }
+                else if (year == "") {
+                    errorMessage.innerHTML = "Error: Year cannot be empty!";
+                    return false;
+                }
+                else if (year < 1 || year > 4) {
+                    errorMessage.innerHTML = "Error: Year must be between 1 and 4!";
+                    return false;
+                }
+            else if (email == "") {
+                errorMessage.innerHTML = "Error: Email cannot be empty!";
+                return false;
+            }
+            else if (!email.includes("@") || !email.includes(".")) {
+                errorMessage.innerHTML = "Error: Please enter a valid email address!";
+                return false;
+            }
+            else if (phone == "") {
+                errorMessage.innerHTML = "Error: Phone number cannot be empty!";
+                return false;
+            }
+            else if (phone.length != 10) {
+                errorMessage.innerHTML = "Error: Phone number must be exactly 10 digits!";
+                return false;
+            }
+            else if (isNaN(phone)) {
+                errorMessage.innerHTML = "Error: Phone number must contain only digits!";
+                return false;
+            }
+            else if (course == "") {
+                errorMessage.innerHTML = "Error: Please select a course!";
+                return false;
+            }
+            else {
+                alert("Form submitted successfully!\n\nName: " + name + "\nEmail: " + email + "\nPhone: " + phone + "\nCourse: " + course + "\nRegistration Number: " + regno + "\nDate of Birth: " + dob + "\nYear: " + year + "\nSection: " + section + "\nBlood Group: " + bloodgroup + "\nAddress: " + address);
+                return true;
+            }
+        }
+    </script>
+
+</body>
+</html>
